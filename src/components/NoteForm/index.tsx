@@ -11,16 +11,10 @@ interface Props {
   handleSubmit: (values: Note, helpers: FormikHelpers<Note>) => void
 }
 
-const NoteForm = ({ note, handleSubmit }: Props) => {
+const NoteForm = ({ note, handleSubmit, handleCancel }: Props) => {
   const navigate = useNavigate();
   let { collections } = useCollections();
   collections = [{ id: '', name: 'None' }, ...collections];
-  
-  const handleCancel = () => {
-    const shouldCancel = prompt('Are you sure? All changes will be lost.');
-    if (!shouldCancel) return;
-    navigate(-1);
-  };
 
   return (
     <Formik

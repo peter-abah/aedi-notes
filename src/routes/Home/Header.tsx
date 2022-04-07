@@ -7,7 +7,7 @@ const Header = () => {
       <h1 className="text-xl">Home</h1>
 
       <div className='flex'>
-        <button><MdSearch className='mr-3 text-xl' /></button>
+        <button><MdSearch className='mr-4 text-xl' /></button>
         <button><MdSort className='text-xl' /></button>
       </div>
     </header> 
