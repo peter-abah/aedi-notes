@@ -2,17 +2,13 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AllProviders from './contexts';
 
+import { Home } from './routes';
+
 function App() {
-  const foo = (
-    <div className="m-4">
-      <h1 className="text-green-700">Aedi Notes!</h1>
-    </div>
-  );
-  
   return (
     <AllProviders>
       <Routes>
-        <Route path='/' element={foo} />
+        <Route path='/' element={<Home />} />
       </Routes>
     </AllProviders>
   )
