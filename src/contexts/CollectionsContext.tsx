@@ -43,12 +43,12 @@ const CollectionsProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const updateCollection = (collection: Collection) => {
-    const filtered = collections.filter(({ id }) => collection.id === id);
+    const filtered = collections.filter(({ id }) => collection.id !== id);
     setCollections([...filtered, collection]);
   };
 
   const deleteCollection = (id: string) => {
-    const filtered = collections.filter((collection) => collection.id === id);
+    const filtered = collections.filter((collection) => collection.id !== id);
     setCollections(filtered);
   };
   
