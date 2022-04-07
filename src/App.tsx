@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import AllProviders from './contexts';
 
 function App() {
   const foo = (
@@ -9,9 +10,11 @@ function App() {
   );
   
   return (
-    <Routes>
-      <Route path='/' element={foo} />
-    </Routes>
+    <AllProviders>
+      <Routes>
+        <Route path='/' element={foo} />
+      </Routes>
+    </AllProviders>
   )
 }
 
