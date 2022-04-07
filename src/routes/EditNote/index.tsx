@@ -17,7 +17,7 @@ const EditNote = () => {
   
   const handleSubmit = (values: Note) => {
     updateNote(values);
-    navigate(`/notes/${values.id}`);
+    navigate(-1);
   };
   
   const goBack = () => {
