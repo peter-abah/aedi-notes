@@ -5,7 +5,7 @@ export interface Note {
   id: string;
   title: string;
   body: string;
-  folder_id?: string;
+  collection_id?: string;
   format: string;
 }
 

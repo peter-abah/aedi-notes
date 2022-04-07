@@ -1,11 +1,14 @@
 import React from 'react';
-import NotesContextProvider from './NotesContext';
+import NotesProvider from './NotesContext';
+import CollectionsProvider from './CollectionsContext';
 
 const AllProviders = ({ children }: { children: React.ReactNode }) => {
   return (
-    <NotesContextProvider>
-      {children}
-    </NotesContextProvider>
+    <NotesProvider>
+      <CollectionsProvider>
+        {children}
+      </CollectionsProvider>
+    </NotesProvider>
   )
 };
 
