@@ -8,19 +8,14 @@ import { Input, Textarea, Select } from './formFields';
 
 interface Props {
   note: Note,
-  handleSubmit: (values: Note, helpers: FormikHelpers<Note>) => void
+  handleSubmit: (values: Note, helpers: FormikHelpers<Note>) => void;
+  handleCancel: () => void;
 }
 
-const NoteForm = ({ note, handleSubmit }: Props) => {
+const NoteForm = ({ note, handleSubmit, handleCancel }: Props) => {
   const navigate = useNavigate();
   let { collections } = useCollections();
   collections = [{ id: '', name: 'None' }, ...collections];
-  
-  const handleCancel = () => {
-    const shouldCancel = prompt('Are you sure? All changes will be lost.');
-    if (!shouldCancel) return;
-    navigate(-1);
-  };
 
   return (
     <Formik

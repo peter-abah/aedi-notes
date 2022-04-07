@@ -18,7 +18,7 @@ const Header = ({ note }: { note: Note  }) => {
           </Link>
     
           <button>
-            <MdMoreVert className='ml-2 text-xl' />
+            <MdMoreVert className='ml-4 text-xl' />
           </button>
         </div>
       }
