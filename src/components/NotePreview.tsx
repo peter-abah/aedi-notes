@@ -6,10 +6,17 @@ interface Props {
   link?: boolean;
 }
 const NotePreview = ({ note, link }: Props) => {
+  let noteBody;
+  if (note.body.length < 300) {
+    noteBody = note.body;
+  } else {
+    noteBody = note.body.substring(0, 300) + '...';
+  }
+
   const preview = (
     <div className="p-2 rounded border">
       <h2 className="mb-2">{note.title}</h2>
-      <p className="text-sm">{note.body.substring(0,100)}</p>
+      <p className="text-sm">{noteBody}</p>
     </div>
   );
   
