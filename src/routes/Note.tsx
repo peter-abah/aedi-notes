@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useTitle } from '../hooks'
 import { useNotes } from '../contexts/NotesContext';
 
+import { MdArrowBack, MdEdit, MdMoreVert } from 'react-icons/md'
 import Note from '../components/Note';
 import NoteNotFound from '../components/NoteNotFound';
 
@@ -17,10 +18,21 @@ const NotePage = () => {
   useTitle(`Aedi | ${title}`);
   
   return (
-    <main className="p-2">
+    <main className="p-4">
       <header className="flex justify-between mb-2">
-       <button onClick={() => navigate(-1)}>Back</button>
-       {note && <Link to={`/notes/edit/${note.id}`}>Edit</Link>}
+        <button onClick={() => navigate(-1)}>
+          <MdArrowBack className='text-xl' />
+        </button>
+        <div className='flex'>
+          {note &&
+            <Link to={`/notes/edit/${note.id}`}>
+               <MdEdit className='text-xl' />
+            </Link>
+          }
+          <button>
+            <MdMoreVert className='ml-2 text-xl' />
+          </button>
+        </div>
       </header>
   
       {note ?

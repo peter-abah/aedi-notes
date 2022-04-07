@@ -6,7 +6,7 @@ const Home = () => {
   const notes = getNotesWithoutCollection();
   
   return (
-    <main className="p-2">
+    <main className="p-4">
       <header className="mb-4 flex justify-center">
         <h1 className="text-xl">Home</h1>
       </header>
