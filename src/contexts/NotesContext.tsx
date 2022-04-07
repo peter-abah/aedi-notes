@@ -46,12 +46,12 @@ const NotesProvider = ({ children }: { children: React.ReactNode }) => {
 
   const updateNote = (note: Note) => {
     const filtered = notes.filter(({ id }) => note.id === id);
-    setNotes([...notes, note]);
+    setNotes([...filtered, note]);
   };
 
   const deleteNote = (id: string) => {
     const filtered = notes.filter((note) => note.id === id);
-    setNotes(notes);
+    setNotes(filtered);
   };
 
   const providerValue = { notes, getNote, newNote, updateNote, deleteNote };

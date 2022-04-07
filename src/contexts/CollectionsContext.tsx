@@ -39,17 +39,17 @@ const CollectionsProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const createCollection = (collection: Collection) => {
-    setCollections([... collections, collection]);
+    setCollections([...collections, collection]);
   }
 
   const updateCollection = (collection: Collection) => {
     const filtered = collections.filter(({ id }) => collection.id === id);
-    setCollections([...collections, collection]);
+    setCollections([...filtered, collection]);
   };
 
   const deleteCollection = (id: string) => {
     const filtered = collections.filter((collection) => collection.id === id);
-    setCollections(collections);
+    setCollections(filtered);
   };
   
   const getCollectionNotes = (id: string) => {
