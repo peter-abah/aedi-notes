@@ -4,7 +4,7 @@ import { useNotes, Note } from './NotesContext';
 
 export interface Collection {
   id: string;
-  title: string;
+  name: string;
 }
 
 interface CollectionsContextInterface {
@@ -20,11 +20,11 @@ interface CollectionsContextInterface {
 const initialCollections = [
   {
     id: '234',
-    title: 'Books',
+    name: 'Books',
   },
   {
     id: '647288',
-    title: 'JS',
+    name: 'JS',
   }
 ]
 
