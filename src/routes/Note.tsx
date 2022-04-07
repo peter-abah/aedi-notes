@@ -19,7 +19,7 @@ const NotePage = () => {
   
   return (
     <main className="p-4">
-      <header className="flex justify-between mb-2">
+      <header className="flex justify-between mb-4">
         <button onClick={() => navigate(-1)}>
           <MdArrowBack className='text-xl' />
         </button>
