@@ -4,7 +4,7 @@ export const Input = ({ className, ...props }: any) => {
   const [field, meta] = useField(props);
   return (
     <div className={className}>
-      <input {...field} {...props} />
+      <input className='text-inherit bg-inherit' {...field} {...props} />
       {meta.touched && meta.error ?
         <p className='text-xs'>{meta.error}</p> :
         null
@@ -17,7 +17,7 @@ export const Textarea = ({ className, ...props }: any) => {
   const [field, meta] = useField(props);
   return (
     <div className={className}>
-      <textarea className='w-full grow' {...field} {...props} />
+      <textarea className='text-inherit bg-inherit w-full grow' {...field} {...props} />
       {meta.touched && meta.error ?
         <p className='text-xs'>{meta.error}</p> :
         null
