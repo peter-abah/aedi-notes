@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
+import uniqid from 'uniqid';
 
 export interface Note {
   id: string;
@@ -13,9 +14,10 @@ export interface Note {
 interface NotesContextInterface {
   notes: Note[];
   getNote: (id: string) => Note;
-  newNote: (note: Note) => void;
+  createNote: (note: Note) => void;
   updateNote: (note: Note) => void;
   deleteNote: (id: string) => void;
+  emptyNote: () => Note;
 }
 
 const initialNotes = [
@@ -42,7 +44,7 @@ const NotesProvider = ({ children }: { children: React.ReactNode }) => {
 
   const getNote = (id: string) => notes.filter((note) => note.id === id)[0];
 
-  const newNote = (note: Note) => setNotes([note, ...notes]);
+  const createNote = (note: Note) => setNotes([note, ...notes]);
 
   const updateNote = (note: Note) => {
     const filtered = notes.filter(({ id }) => note.id !== id);
@@ -53,8 +55,24 @@ const NotesProvider = ({ children }: { children: React.ReactNode }) => {
     const filtered = notes.filter((note) => note.id !== id);
     setNotes(filtered);
   };
+  
+  const emptyNote = (collection_id?: string) => ({
+    id: uniqid(),
+    title: '',
+    body: '',
+    format: 'txt',
+    updated_at: new Date().toISOString(),
+    collection_id,
+  });
 
-  const providerValue = { notes, getNote, newNote, updateNote, deleteNote };
+  const providerValue = { 
+    notes,
+    getNote,
+    createNote,
+    updateNote,
+    deleteNote,
+    emptyNote
+  };
 
   return (
     <NotesContext.Provider value={providerValue}>{children}</NotesContext.Provider>
