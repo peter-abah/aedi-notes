@@ -27,7 +27,7 @@ const NoteForm = ({ note, handleSubmit, handleCancel }: Props) => {
       })}
       onSubmit={handleSubmit}
     >
-      <Form>
+      <Form className='flex flex-col grow'>
         <Input
           name='title'
           type='text'
@@ -51,6 +51,7 @@ const NoteForm = ({ note, handleSubmit, handleCancel }: Props) => {
         <Textarea
           name='body'
           placeholder='Body'
+          classNamw='grow'
         />
         
         <div className='flex justify-between'>

@@ -13,11 +13,11 @@ export const Input = ({ ...props }: any) => {
   )
 };
 
-export const Textarea = ({...props}: any) => {
+export const Textarea = ({ className, ...props }: any) => {
   const [field, meta] = useField(props);
   return (
-    <div>
-      <textarea className='w-full' {...field} {...props} />
+    <div className={className}>
+      <textarea className='w-full h-full' {...field} {...props} />
       {meta.touched && meta.error ?
         <p>{meta.error}</p> :
         null
