@@ -14,7 +14,7 @@ const NotePreview = ({ note, link }: Props) => {
   }
 
   const preview = (
-    <div className="p-2 rounded border">
+    <div className="p-2 rounded border w-full">
       <h2 className="mb-2">{note.title}</h2>
       <p className="text-sm">{noteBody}</p>
     </div>
