@@ -42,11 +42,11 @@ const NotesProvider = ({ children }: { children: React.ReactNode }) => {
 
   const getNote = (id: string) => notes.filter((note) => note.id === id)[0];
 
-  const newNote = (note: Note) => setNotes([...notes, note]);
+  const newNote = (note: Note) => setNotes([note, ...notes]);
 
   const updateNote = (note: Note) => {
     const filtered = notes.filter(({ id }) => note.id !== id);
-    setNotes([...filtered, note]);
+    setNotes([note, ...filtered]);
   };
 
   const deleteNote = (id: string) => {
