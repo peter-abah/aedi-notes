@@ -51,7 +51,7 @@ const NoteForm = ({ note, handleSubmit, handleCancel }: Props) => {
         <Textarea
           name='body'
           placeholder='Body'
-          classNamw='grow'
+          className='grow'
         />
         
         <div className='flex justify-between'>
