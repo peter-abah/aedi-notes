@@ -9,7 +9,7 @@ interface Props {
 
 const SideBar = ({ isOpen, toggle, setIsOpen }: Props) => {
   return ( isOpen ?
-    <nav className='fixed top-0 left-0 p-4 h-screen overflow-y-auto'>
+    <nav className='fixed top-0 left-0 p-4 h-screen overflow-y-auto bg-secondary'>
       <section className='mb-4 flex flex-col gap-2'>
         <Link to='/'>Notes</Link>
         <Link to='/notes/recent'>Recent</Link>

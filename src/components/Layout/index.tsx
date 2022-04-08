@@ -22,14 +22,14 @@ const Layout = ({ renderHeader, children }: Props) => {
   const header = renderHeader({ isNavOpen, setNavOpen, toggleNav });
 
   return (
-    <div>
+    <main className='p-4'>
       {header}
 
       <div className='flex'>
         <SideBar isOpen={isNavOpen} toggle={toggleNav} setIsOpen={setNavOpen} />
         {children}
       </div>
-    </div>
+    </main>
   );
 };
 

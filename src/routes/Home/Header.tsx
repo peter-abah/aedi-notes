@@ -11,8 +11,8 @@ const Header = ({ isNavOpen, toggleNav }: Props) => {
     <header className="mb-4 flex justify-between">
       <button onClick={toggleNav}>
         {isNavOpen ?
-          <MdMenu className='text-xl' /> :
-          <MdClose className='text-xl' />
+          <MdClose className='text-xl' /> :
+          <MdMenu className='text-xl' />
         }
       </button>
       <h1 className="text-xl">Home</h1>
