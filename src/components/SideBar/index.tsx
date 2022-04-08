@@ -8,7 +8,7 @@ interface Props {
 };
 
 const SideBar = ({ isOpen, toggle, setIsOpen }: Props) => {
-  return ( isOpen &&
+  return ( isOpen ?
     <nav className='fixed top-0 left-0 p-4 h-screen overflow-y-auto'>
       <section className='mb-4 flex flex-col gap-2'>
         <Link to='/'>Notes</Link>
@@ -21,8 +21,8 @@ const SideBar = ({ isOpen, toggle, setIsOpen }: Props) => {
         <Link to='/trash'>Trash</Link>
         <Link to='/settings'>Settings</Link>
       </section>
-    </nav>
-  )
+    </nav> : null
+  );
 };
 
 export default SideBar;
