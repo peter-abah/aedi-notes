@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom';
 import Collections from './Collections';
 
-const SideBar = () => {
-  return (
-    <nav className='p-4'>
+interface Props {
+  isOpen: boolean;
+  toggle: () => void;
+  setIsOpen: (isOpen: boolean) => void;
+};
+
+const SideBar = ({ isOpen, toggle, setIsOpen }: Props) => {
+  return ( isOpen &&
+    <nav className='fixed top-0 left-0 p-4 h-screen overflow-y-auto'>
       <section className='mb-4 flex flex-col gap-2'>
         <Link to='/'>Notes</Link>
         <Link to='/notes/recent'>Recent</Link>
