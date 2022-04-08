@@ -17,7 +17,7 @@ const SideBar = ({ isOpen, toggle, setIsOpen }: Props) => {
   useOnClickOutside(ref, closeNav)
 
   return ( isOpen ?
-    <div className='fixed top-0 left-0 h-screen w-screen bg-secondary/30'>
+    <div className='z-10 fixed top-0 left-0 h-screen w-screen bg-secondary/30'>
       <nav ref={ref} className='h-full w-full max-w-xs p-6 overflow-y-auto bg-secondary'>
         <div className='pb-4 flex flex-end'>
           <button onClick={closeNav}>
