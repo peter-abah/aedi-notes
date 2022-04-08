@@ -26,15 +26,15 @@ const SideBar = ({ isOpen, toggle, setIsOpen }: Props) => {
         </div>
 
         <section className='mb-6 flex flex-col gap-2'>
-          <Link to='/'>Notes</Link>
-          <Link to='/notes/recent'>Recent</Link>
+          <Link onClick={closeNav} to='/'>Notes</Link>
+          <Link onClick={closeNav}  to='/notes/recent'>Recent</Link>
         </section>
         
-        <Collections />
+        <Collections handleClick={closeNav} />
         
         <section className='mb-6 flex flex-col gap-2'>
-          <Link to='/trash'>Trash</Link>
-          <Link to='/settings'>Settings</Link>
+          <Link onClick={closeNav} to='/trash'>Trash</Link>
+          <Link onClick={closeNav} to='/settings'>Settings</Link>
         </section>
       </nav>
     </div> : null

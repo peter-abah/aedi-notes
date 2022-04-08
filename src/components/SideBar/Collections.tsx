@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { MdFolder, MdCreateNewFolder } from 'react-icons/md';
 
-const Collections = () => {
+const Collections = ({ handleClick }: { handleClick: () => void}) => {
   const { value: isOpen, toggle } = useBoolean(true);
   const { collections } = useCollections();
   
@@ -17,12 +17,12 @@ const Collections = () => {
       {isOpen && 
         <div className='flex flex-col gap-2 text-sm'>
           {collections.map(({ name, id }) => (
-            <Link className='flex items-center gap-2' to={`/collections/${id}`} key={id}>
+            <Link onClick={handleClick}  className='flex items-center gap-2' to={`/collections/${id}`} key={id}>
               <MdFolder /> {name}
             </Link>
           ))}
 
-          <Link className='flex items-center gap-2' to='/collections/new'>
+          <Link onClick={handleClick} className='flex items-center gap-2' to='/collections/new'>
             <MdCreateNewFolder /> Add collection
           </Link>
         </div>
