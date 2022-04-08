@@ -32,9 +32,10 @@ const NoteForm = ({ note, handleSubmit, handleCancel }: Props) => {
           name='title'
           type='text'
           placeholder='Title'
+          className='text-lg font-bold'
         />
         
-        <div className='flex justify-between'>
+        <div className='flex justify-between mb-4 text-sm'>
           <Select label='Collection: ' name='collection_id'>
             {collections.map(({ id, name }) => (
               <option value={id} key={id}>{name}</option>
@@ -51,10 +52,10 @@ const NoteForm = ({ note, handleSubmit, handleCancel }: Props) => {
         <Textarea
           name='body'
           placeholder='Body'
-          className='grow'
+          className='flex flex-col grow'
         />
         
-        <div className='flex justify-between'>
+        <div className='flex justify-between mb-4'>
           <button type='submit'>Save</button>
           <button type='button' onClick={handleCancel}>Cancel</button>
         </div>
