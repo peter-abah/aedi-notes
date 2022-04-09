@@ -5,6 +5,7 @@ import Layout, { renderHeaderArgs } from '../../components/Layout';
 import Notes from '../../components/Notes';
 import CollectionNotFound from '../../components/CollectionNotFound';
 import Header from './Header'
+import NewNoteBtn from '../../components/NewNoteBtn'
 
 const Collection = () => {
   const { id } = useParams() as { id: string }
@@ -18,7 +19,10 @@ const Collection = () => {
   return (
     <Layout renderHeader={renderHeader}>
       {collection ?
-        <Notes notes={notes} /> :
+        <>
+          <Notes notes={notes} />
+          <NewNoteBtn />
+        </> :
         <CollectionNotFound />
       }
     </Layout>
