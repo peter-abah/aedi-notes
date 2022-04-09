@@ -16,7 +16,7 @@ const NotePreview = ({ note, link }: Props) => {
   const preview = (
     <div className="p-2 rounded border">
       <h2 className="mb-2">{note.title}</h2>
-      <p className="text-sm">{noteBody}</p>
+      <p className="text-sm whitespace-pre-wrap">{noteBody}</p>
     </div>
   );
   

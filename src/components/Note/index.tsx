@@ -5,7 +5,7 @@ const Note = ({ note }: { note: NoteType }) => {
   return (
     <section>
       <Header note={note} />
-      <article>{note.body}</article>
+      <article className='whitespace-pre-wrap'>{note.body}</article>
     </section>
   )
 };

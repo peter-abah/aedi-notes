@@ -27,7 +27,7 @@ const EditNote = () => {
   };
 
   return (
-    <main className='min-h-screen flex flex-col p-4'>
+    <main className='min-h-screen flex flex-col p-6'>
       <Header note={note} goBack={goBack} />
       {note?
         <NoteForm note={note} handleSubmit={handleSubmit} handleCancel={goBack} /> :

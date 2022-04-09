@@ -15,7 +15,7 @@ const NotePage = () => {
   useTitle(`Aedi | ${title}`);
   
   return (
-    <main className="p-4">
+    <main className="p-6">
       <Header note={note} />
       {note ?
         <Note note={note} /> :
