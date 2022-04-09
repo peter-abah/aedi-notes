@@ -9,6 +9,7 @@ export interface Note {
   collection_id?: string;
   format: string;
   updated_at: string;
+  created_at: string;
 }
 
 interface NotesContextInterface {
@@ -26,6 +27,7 @@ const initialNotes = [
     title: 'First Note',
     body: 'The you are right I don know what',
     format: 'txt',
+    created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   },
   {
@@ -33,6 +35,7 @@ const initialNotes = [
     title: 'Eloquent',
     body: 'The you are right I don know what code is using bcrypt package is in the person shoes 👟 to be careful with the person who he is y to get into an opinion you are trying to persuade him to see 🙈 and make you feel you need and your mom are doing good points and make it genuine and your mom to get a job to do with you about it all night I love to feel important and make it hard to convince me to come over to get the person who has the person who has a conversation with me obviouslyfake@fake.com and I would love to feel important and make it hard to breathe in return for when they are doing well and I know what they want to do with you and he is using it if there is using HD HD HD HDD to get hid it hard hid the 🏡 to hide and your family and appreciated hard h I hudujdud behind hshushd hhh aloud bookbag bduixm to get the person shoes 👟 everything I genuiney',
     format: 'txt',
+    created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   }
 ]
@@ -44,9 +47,14 @@ const NotesProvider = ({ children }: { children: React.ReactNode }) => {
 
   const getNote = (id: string) => notes.filter((note) => note.id === id)[0];
 
-  const createNote = (note: Note) => setNotes([note, ...notes]);
+  const createNote = (note: Note) => {
+    const date = new Date().toISOString()
+    note = { ...note, created_at: date, updated_at: date }
+    setNotes([note, ...notes]);
+  }
 
   const updateNote = (note: Note) => {
+    note = { ...note, updated_at: new Date().toISOString() }
     const filtered = notes.filter(({ id }) => note.id !== id);
     setNotes([note, ...filtered]);
   };
@@ -61,7 +69,8 @@ const NotesProvider = ({ children }: { children: React.ReactNode }) => {
     title: '',
     body: '',
     format: 'txt',
-    updated_at: new Date().toISOString(),
+    updated_at: '',
+    created_at: '',
     collection_id,
   });
 
