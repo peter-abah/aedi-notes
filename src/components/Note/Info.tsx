@@ -11,7 +11,7 @@ const Info = ({ note }: { note: Note }) => {
     <div className='flex wrap gap-4 text-sm'>
       {collection && 
         <span>
-          In: <Link to={`collections/${collection.id}`}>{collection.name}</Link>
+          In: <Link to={`/collections/${collection.id}`}>{collection.name}</Link>
         </span>
       }
       <span>Format: <span>{note.format}</span></span>

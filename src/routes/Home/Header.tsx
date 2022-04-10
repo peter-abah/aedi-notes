@@ -15,7 +15,7 @@ const Header = ({ isNavOpen, toggleNav }: Props) => {
           <MdMenu className='text-xl' />
         }
       </button>
-      <h1 className="text-lg">Home</h1>
+      <h1 className="text-lg">All Notes</h1>
 
       <div className='flex'>
         <button><MdSearch className='mr-4 text-xl' /></button>
