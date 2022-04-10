@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
 import { useNotes, Note } from './NotesContext';
+import uniqid from 'uniqid';
 
 export interface Collection {
   id: string;
@@ -15,6 +16,7 @@ interface CollectionsContextInterface {
   deleteCollection: (id: string) => void;
   getCollectionNotes: (id: string) => Note[];
   getNotesWithoutCollection: () => Note[];
+  emptyCollection: () => Collection;
 }
 
 const initialCollections = [
@@ -58,7 +60,9 @@ const CollectionsProvider = ({ children }: { children: React.ReactNode }) => {
   
   const getNotesWithoutCollection = () => {
     return notes.filter((note) => !note.collection_id)
-  }
+  };
+  
+  const emptyCollection = () => ({ name: '', id: uniqid() })
 
   const providerValue = {
     collections,
@@ -67,7 +71,8 @@ const CollectionsProvider = ({ children }: { children: React.ReactNode }) => {
     updateCollection,
     deleteCollection,
     getCollectionNotes,
-    getNotesWithoutCollection
+    getNotesWithoutCollection,
+    emptyCollection,
   };
 
   return (
