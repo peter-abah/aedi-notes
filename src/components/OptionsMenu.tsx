@@ -12,9 +12,9 @@ const OptionsMenu = ({items}: Props) => {
     <button><MdMoreVert className='text-xl' /></button>
   )
   return (
-    <Menu menuButton={menuBtn}>
+    <Menu className='bg-secondary text-primary' menuButton={menuBtn}>
       {items.map(([name, handleClick]) => (
-        <MenuItem key={name} onClick={handleClick}>
+        <MenuItem className='text-sm bg-secondary text-primary' key={name} onClick={handleClick}>
           {name}
         </MenuItem>
       ))}

@@ -1,8 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Note } from '../../contexts/NotesContext';
-import { MdArrowBack, MdEdit, MdMoreVert } from 'react-icons/md'
+import { MdArrowBack, MdEdit } from 'react-icons/md';
+import OptionsMenu from '../../components/OptionsMenu'
 
-const Header = ({ note }: { note: Note  }) => {
+interface Props {
+  note: Note;
+  handleDelete: () => void;
+}
+const Header = ({ note, handleDelete }: Props) => {
   const navigate = useNavigate();
 
   return (
@@ -13,13 +18,11 @@ const Header = ({ note }: { note: Note  }) => {
   
       {note &&
         <div className='flex'>
-          <Link to={`/notes/edit/${note.id}`}>
+          <Link className='mr-4' to={`/notes/edit/${note.id}`}>
             <MdEdit className='text-xl' />
           </Link>
     
-          <button>
-            <MdMoreVert className='ml-4 text-xl' />
-          </button>
+          <OptionsMenu items={[['Delete', handleDelete]]} />
         </div>
       }
     </header>
