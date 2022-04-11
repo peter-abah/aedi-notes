@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Note } from '../contexts/NotesContext';
+import Markdown from './Markdown';
 
 interface Props {
   note: Note;
@@ -16,7 +17,10 @@ const NotePreview = ({ note, link }: Props) => {
   const preview = (
     <div className="p-2 rounded border">
       <h2 className="mb-2">{note.title}</h2>
-      <p className="text-sm whitespace-pre-wrap">{noteBody}</p>
+      {note.format === 'md' ?
+        <Markdown>{noteBody}</Markdown> :
+        <p className="text-sm whitespace-pre-wrap">{noteBody}</p>
+      }
     </div>
   );
   

@@ -11,4 +11,12 @@ body {
   body {
     @apply text-primary bg-secondary;
   }
+  .markdown, .markdown * {
+    all: revert;
+    color: inherit;
+    font-family: inherit;
+  }
+  .markdown code {
+    font-family: Courier, monospace !important;
+  }
 }
