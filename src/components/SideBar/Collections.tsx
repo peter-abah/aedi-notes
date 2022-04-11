@@ -1,13 +1,16 @@
 import { useBoolean } from 'usehooks-ts'
-import { useCollections } from '../../contexts/CollectionsContext';
 import { Link } from 'react-router-dom';
-
 import { MdFolder, MdCreateNewFolder } from 'react-icons/md';
+import { useCollections } from '../../contexts/CollectionsContext';
 
-const Collections = ({ handleClick }: { handleClick: () => void}) => {
-  const { value: isOpen, toggle } = useBoolean(true);
-  const { collections } = useCollections();
-  
+interface Props {
+  handleClick: () => void;
+  openCollectionForm: () => void;
+}
+const Collections = ({ handleClick, openCollectionForm }: Props) => {
+  const { value: isOpen, toggle } = useBoolean(true)
+  const { collections }= useCollections();
+
   return (
     <section className='mb-6'>
       <h2 className='mb-2'>
@@ -17,14 +20,19 @@ const Collections = ({ handleClick }: { handleClick: () => void}) => {
       {isOpen && 
         <div className='flex flex-col gap-2 text-sm'>
           {collections.map(({ name, id }) => (
-            <Link onClick={handleClick}  className='flex items-center gap-2' to={`/collections/${id}`} key={id}>
+            <Link
+              className='flex items-center gap-2'
+              onClick={handleClick}
+              to={`/collections/${id}`}
+              key={id}
+            >
               <MdFolder /> {name}
             </Link>
           ))}
 
-          <Link onClick={handleClick} className='flex items-center gap-2' to='/collections/new'>
+          <button onClick={openCollectionForm} className='flex items-center gap-2'>
             <MdCreateNewFolder /> Add collection
-          </Link>
+          </button>
         </div>
       }
     </section>

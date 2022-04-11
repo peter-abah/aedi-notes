@@ -18,12 +18,12 @@ const CollectionForm = ({ collection, handleSubmit, handleCancel }: Props) => {
         })}
         onSubmit={handleSubmit}
       >
-        <Form className='w-80 max-w-[90%] p-4 rounded-md'>
+        <Form className='w-80 max-w-[90%] p-4 rounded-md bg-secondary'>
           <h2 className='mb-3 text-lg'>Collection</h2>
   
           <div className='mb-3'>
             <label htmlFor='name'>Name:</label>
-            <Field id='name' name='name' type='text' className='border p-1 w-full' />
+            <Field id='name' name='name' type='text' className='border p-1 w-full bg-secondary' />
             <ErrorMessage name='name' className='text-sm pt-2' />
           </div>
 

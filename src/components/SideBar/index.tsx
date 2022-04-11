@@ -8,9 +8,10 @@ interface Props {
   isOpen: boolean;
   toggle: () => void;
   setIsOpen: (isOpen: boolean) => void;
+  openCollectionForm: () => void;
 };
 
-const SideBar = ({ isOpen, toggle, setIsOpen }: Props) => {
+const SideBar = ({ isOpen, toggle, setIsOpen, openCollectionForm }: Props) => {
   const closeNav = () => setIsOpen(false);
 
   const ref = useRef(null);
@@ -29,7 +30,7 @@ const SideBar = ({ isOpen, toggle, setIsOpen }: Props) => {
           <Link onClick={closeNav} to='/'>All Notes</Link>
         </section>
         
-        <Collections handleClick={closeNav} />
+        <Collections handleClick={closeNav} openCollectionForm={openCollectionForm} />
         
         <section className='mb-6 flex flex-col gap-2'>
           <Link onClick={closeNav} to='/trash'>Trash</Link>
